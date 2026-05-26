@@ -1,14 +1,14 @@
 import app from "./app.js";
-import { prisma } from "./config/prisma.js";
+import prisma from "./config/prisma.js";
 
 const PORT = process.env.PORT || 3000;
 
 async function main() {
   try {
     await prisma.$connect();
-    console.log("Conexão bem-sucedida com o banco de dados!");
+    console.log("✅ Conexão bem-sucedida com o banco de dados!");
   } catch (error) {
-    console.error("Erro ao conectar ao banco de dados:", error);
+    console.error("❌ Erro ao conectar ao banco de dados:", error.message);
     process.exit(1);
   }
 }
@@ -21,5 +21,5 @@ process.on("SIGINT", async () => {
 main();
 
 app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
+  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
 });

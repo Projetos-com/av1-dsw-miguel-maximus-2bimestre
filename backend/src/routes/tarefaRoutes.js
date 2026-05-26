@@ -13,33 +13,52 @@ import * as TarefaController from "../controllers/tarefaController.js";
 const router = express.Router();
 
 // ========================================
-// DEFINIÇÃO DAS ROTAS DE TAREFAS
+// DEFINIÇÃO DAS ROTAS REST - TAREFAS
 // ========================================
 
 /**
  * GET /tarefas - Lista todas as tarefas
+ * @route GET /tarefas
+ * @returns {Array} Array com todas as tarefas
  */
-router.get("/tarefas", TarefaController.listarTarefas);
+router.get("/tarefas", TarefaController.listar);
 
 /**
- * GET /tarefas/:id - Obtém uma tarefa específica
+ * GET /tarefas/:id - Busca uma tarefa pelo ID
+ * @route GET /tarefas/:id
+ * @param {number} id - ID da tarefa
+ * @returns {Object} Tarefa encontrada
  */
-router.get("/tarefas/:id", TarefaController.obterTarefa);
+router.get("/tarefas/:id", TarefaController.buscarPorId);
 
 /**
  * POST /tarefas - Cria uma nova tarefa
+ * @route POST /tarefas
+ * @body {string} title - Título da tarefa (obrigatório)
+ * @body {string} description - Descrição da tarefa (opcional)
+ * @body {boolean} completed - Status de conclusão (opcional)
+ * @returns {201} Tarefa criada
  */
-router.post("/tarefas", TarefaController.criarTarefa);
+router.post("/tarefas", TarefaController.criar);
 
 /**
- * PATCH /tarefas/:id - Atualiza uma tarefa parcialmente
+ * PUT /tarefas/:id - Atualiza uma tarefa
+ * @route PUT /tarefas/:id
+ * @param {number} id - ID da tarefa
+ * @body {string} title - Novo título (opcional)
+ * @body {string} description - Nova descrição (opcional)
+ * @body {boolean} completed - Novo status (opcional)
+ * @returns {Object} Tarefa atualizada
  */
-router.patch("/tarefas/:id", TarefaController.atualizarTarefa);
+router.put("/tarefas/:id", TarefaController.atualizar);
 
 /**
- * DELETE /tarefas/:id - Remove uma tarefa
+ * DELETE /tarefas/:id - Deleta uma tarefa
+ * @route DELETE /tarefas/:id
+ * @param {number} id - ID da tarefa
+ * @returns {Object} Tarefa deletada
  */
-router.delete("/tarefas/:id", TarefaController.excluirTarefa);
+router.delete("/tarefas/:id", TarefaController.excluir);
 
 // Exporta o roteador para ser usado no app principal
 export default router;

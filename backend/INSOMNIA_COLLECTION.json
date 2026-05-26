@@ -1,0 +1,170 @@
+{
+  "name": "CRUD Tarefas - API",
+  "description": "Coleção de requisições para testar o CRUD completo de tarefas",
+  "_exporter_id": "1",
+  "all": [
+    {
+      "_id": "1",
+      "name": "1. LISTAR TODAS AS TAREFAS",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/tarefas",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "_id": "2",
+      "name": "2. BUSCAR TAREFA POR ID",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/tarefas/1",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "_id": "3",
+      "name": "3.1 CRIAR TAREFA - Mínimo (apenas título)",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:3000/tarefas",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Minha primeira tarefa\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "_id": "4",
+      "name": "3.2 CRIAR TAREFA - Com descrição",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:3000/tarefas",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Aprender Prisma\",\n  \"description\": \"Entender migrations, relações e queries\",\n  \"completed\": false\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "_id": "5",
+      "name": "3.3 CRIAR TAREFA - Completa (com completed)",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:3000/tarefas",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Tarefa já concluída\",\n  \"description\": \"Esta tarefa já foi feita\",\n  \"completed\": true\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "_id": "6",
+      "name": "4.1 ATUALIZAR TAREFA - Apenas título",
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:3000/tarefas/1",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Novo título\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "_id": "7",
+      "name": "4.2 ATUALIZAR TAREFA - Marcar como concluída",
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:3000/tarefas/1",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"completed\": true\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "_id": "8",
+      "name": "4.3 ATUALIZAR TAREFA - Múltiplos campos",
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:3000/tarefas/1",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Título atualizado\",\n  \"description\": \"Nova descrição aqui\",\n  \"completed\": false\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "_id": "9",
+      "name": "4.4 ATUALIZAR TAREFA - Limpar descrição",
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:3000/tarefas/1",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "_id": "10",
+      "name": "5. EXCLUIR TAREFA",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:3000/tarefas/1",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
